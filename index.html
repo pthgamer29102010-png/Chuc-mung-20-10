@@ -3,144 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thiệp 20/10 cho Trần Anh</title>
+<title>Chúc Trần Anh 20/10 💖</title>
 <style>
-  * { box-sizing: border-box; }
   body {
     margin: 0;
-    background-color: #ffd9e8;
+    background-color: #ffe6f0;
     overflow: hidden;
-    font-family: "Poppins", sans-serif;
+    font-family: "Segoe Script", cursive;
     text-align: center;
-    height: 100vh;
   }
 
-  #giftBox {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(to bottom, #ffd700, #ffcc00);
-    margin: 25vh auto 0;
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.8s;
-  }
-
-  #giftLid {
-    width: 130px;
-    height: 25px;
-    background: #ffcc00;
-    border-radius: 10px 10px 0 0;
+  #gift {
+    width: 200px;
     position: absolute;
-    top: -25px;
-    left: -5px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
     transition: transform 1s;
-    transform-origin: bottom;
   }
 
-  #messageCard {
-    display: none;
-    font-size: 18px;
-    line-height: 1.5;
-    background: #fff0f5;
-    margin: 5vh auto;
-    padding: 20px;
-    width: 90%;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(255, 100, 150, 0.5);
-    animation: fadeIn 1.5s ease;
+  #gift.opened {
+    transform: translate(-50%, -50%) rotateX(180deg);
+    opacity: 0;
   }
 
-  #finalImage {
-    display: none;
-    width: 90%;
-    border-radius: 10px;
-    margin-top: 5vh;
+  #letter {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff8fb;
+    border: 3px solid #ff8fc7;
+    border-radius: 20px;
+    width: 400px;
+    padding: 30px;
+    box-shadow: 0 0 30px pink;
+    transition: all 1s;
+    opacity: 0;
   }
 
-  @keyframes fadeIn {
-    from {opacity: 0; transform: scale(0.8);}
-    to {opacity: 1; transform: scale(1);}
+  #letter.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
 
-  /* Hoa rơi */
-  .flower {
+  #letter h2 {
+    color: #ff4fa0;
+    font-size: 26px;
+  }
+
+  .falling-flower {
     position: fixed;
-    top: -50px;
-    font-size: 22px;
+    top: -10px;
+    color: pink;
+    font-size: 20px;
     animation: fall linear forwards;
   }
 
   @keyframes fall {
     to {
-      transform: translateY(110vh) rotate(720deg);
+      transform: translateY(110vh) rotate(360deg);
       opacity: 0;
     }
+  }
+
+  #card, #finalImage {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 25px #ffb3d1;
+    max-width: 450px;
+  }
+
+  #card h1 {
+    color: #ff4fa0;
+  }
+
+  #finalImage {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  #finalImage img {
+    width: 350px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 100, 150, 0.6);
+  }
+
+  .heart {
+    position: fixed;
+    color: #ff5fa2;
+    font-size: 18px;
+    opacity: 0.8;
+    animation: floatHeart 5s linear forwards;
+  }
+
+  @keyframes floatHeart {
+    to {
+      transform: translateY(-110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  audio {
+    display: none;
   }
 </style>
 </head>
 <body>
 
-<div id="giftBox">
-  <div id="giftLid"></div>
+<img id="gift" src="https://cdn-icons-png.flaticon.com/512/3530/3530206.png" alt="Hộp quà">
+
+<div id="letter">
+  <h2>💌 Hùng DZ chúc Trần Anh 20/10 thật vui vẻ, luôn xinh đẹp và hạnh phúc bên gia đình 💖</h2>
 </div>
 
-<div id="messageCard">
-  💌 <b>Hùng DZ</b> chúc <b>Trần Anh</b> 20/10 thật vui vẻ, hạnh phúc và luôn rạng rỡ như hoa 💐  
-  <br><br>
-  Bạn là điều đặc biệt mà ngày 20/10 muốn gửi gắm 💖
+<div id="card">
+  <h1>🌸 Happy Vietnamese Women’s Day 20/10 🌸</h1>
+  <p>Chúc Trần Anh luôn rạng rỡ, tự tin, thành công và được yêu thương thật nhiều!</p>
 </div>
 
-<img id="finalImage" src="https://i.postimg.cc/x8dcQDFv/7d58ce65-e70f-495c-96b8-5ac5ad58c3eb.jpg" alt="Kết">
+<div id="finalImage">
+  <img src="https://i.postimg.cc/x8dcQDFv/7d58ce65-e70f-495c-96b8-5ac5ad58c3eb.jpg" alt="Ảnh kết thúc">
+</div>
 
-<audio id="bgMusic" src="https://www.mboxdrive.com/perfect_instrumental.mp3" preload="auto"></audio>
+<audio id="music" src="https://cdn.pixabay.com/download/audio/2023/04/12/audio_1c7987d89b.mp3?filename=perfect-piano-cover-143612.mp3"></audio>
 
 <script>
-const giftBox = document.getElementById("giftBox");
-const lid = document.getElementById("giftLid");
-const card = document.getElementById("messageCard");
-const img = document.getElementById("finalImage");
-const music = document.getElementById("bgMusic");
+  const gift = document.getElementById("gift");
+  const letter = document.getElementById("letter");
+  const card = document.getElementById("card");
+  const finalImage = document.getElementById("finalImage");
+  const music = document.getElementById("music");
 
-let clickCount = 0;
+  let clickCount = 0;
 
-giftBox.addEventListener("click", () => {
-  clickCount++;
-  if (clickCount === 1) {
-    lid.style.transform = "rotateX(160deg)";
-    setTimeout(() => {
-      giftBox.style.transform = "scale(0)";
-      card.style.display = "block";
-      startFlowers();
-      music.play().catch(() => {
-        alert("Nhấn lại vào hộp quà để phát nhạc nhé 🎵");
-      });
-    }, 1000);
-  }
-});
-
-document.body.addEventListener("click", () => {
-  if (clickCount === 1) {
-    clickCount = 2;
-    card.innerHTML = "🌹 Nhân ngày 20/10, chúc bạn mãi xinh đẹp, luôn được yêu thương và hạnh phúc trọn vẹn 💗";
-  } else if (clickCount === 2) {
-    clickCount = 3;
-    card.style.display = "none";
-    img.style.display = "block";
-  }
-});
-
-function startFlowers() {
-  setInterval(() => {
+  function createFlower() {
     const flower = document.createElement("div");
-    flower.classList.add("flower");
-    flower.textContent = "🌸";
+    flower.classList.add("falling-flower");
+    flower.innerHTML = "🌸";
     flower.style.left = Math.random() * 100 + "vw";
-    flower.style.animationDuration = 3 + Math.random() * 3 + "s";
+    flower.style.animationDuration = (4 + Math.random() * 3) + "s";
     document.body.appendChild(flower);
-    setTimeout(() => flower.remove(), 5000);
-  }, 350);
-}
+    setTimeout(() => flower.remove(), 7000);
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "-10px";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+
+  gift.addEventListener("click", () => {
+    gift.classList.add("opened");
+    setTimeout(() => {
+      letter.classList.add("show");
+      music.play();
+      setInterval(createFlower, 300);
+    }, 1000);
+  });
+
+  document.body.addEventListener("click", () => {
+    clickCount++;
+    if (clickCount === 2) {
+      letter.style.display = "none";
+      card.style.display = "block";
+    } else if (clickCount === 3) {
+      card.style.display = "none";
+      finalImage.style.display = "block";
+      setInterval(createHeart, 400);
+    }
+  });
 </script>
+
 </body>
 </html>
+
