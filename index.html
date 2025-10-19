@@ -1,200 +1,181 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chúc Trần Anh 20/10 💖</title>
-<style>
-  body {
-    margin: 0;
-    background-color: #ffe6f0;
-    overflow: hidden;
-    font-family: "Segoe Script", cursive;
-    text-align: center;
-  }
-
-  #gift {
-    width: 200px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    transition: transform 1s;
-  }
-
-  #gift.opened {
-    transform: translate(-50%, -50%) rotateX(180deg);
-    opacity: 0;
-  }
-
-  #letter {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background: #fff8fb;
-    border: 3px solid #ff8fc7;
-    border-radius: 20px;
-    width: 400px;
-    padding: 30px;
-    box-shadow: 0 0 30px pink;
-    transition: all 1s;
-    opacity: 0;
-  }
-
-  #letter.show {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-
-  #letter h2 {
-    color: #ff4fa0;
-    font-size: 26px;
-  }
-
-  .falling-flower {
-    position: fixed;
-    top: -10px;
-    color: pink;
-    font-size: 20px;
-    animation: fall linear forwards;
-  }
-
-  @keyframes fall {
-    to {
-      transform: translateY(110vh) rotate(360deg);
-      opacity: 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp 20/10 - Hùng DZ Chúc Trần Anh</title>
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: radial-gradient(circle, #ffebef, #ffccdc);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: "Poppins", sans-serif;
+      transition: background 1s ease;
+      padding: 5vh 0;
     }
-  }
 
-  #card, #finalImage {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  #card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 0 25px #ffb3d1;
-    max-width: 450px;
-  }
-
-  #card h1 {
-    color: #ff4fa0;
-  }
-
-  #finalImage {
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-  }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-
-  #finalImage img {
-    width: 350px;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 100, 150, 0.6);
-  }
-
-  .heart {
-    position: fixed;
-    color: #ff5fa2;
-    font-size: 18px;
-    opacity: 0.8;
-    animation: floatHeart 5s linear forwards;
-  }
-
-  @keyframes floatHeart {
-    to {
-      transform: translateY(-110vh) rotate(360deg);
-      opacity: 0;
+    #giftBox {
+      width: 50vw;
+      max-width: 250px;
+      height: 50vw;
+      max-height: 250px;
+      background: #ff4d6d;
+      border-radius: 15px;
+      position: relative;
+      cursor: pointer;
+      animation: shake 2s infinite ease-in-out;
+      box-shadow: 0 0 30px rgba(255, 0, 90, 0.5);
+      margin-top: 5vh;
     }
-  }
 
-  audio {
-    display: none;
-  }
-</style>
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      50% { transform: rotate(-2deg); }
+      75% { transform: rotate(1deg); }
+    }
+
+    #lid {
+      position: absolute;
+      width: 110%;
+      height: 25%;
+      background: #ffccd5;
+      top: -12%;
+      left: -5%;
+      border-radius: 10px;
+      transition: transform 1s ease;
+    }
+
+    #message {
+      display: none;
+      font-size: 5vw;
+      text-align: center;
+      color: #ff0054;
+      opacity: 0;
+      transition: opacity 2s ease;
+      margin-top: 3vh;
+    }
+
+    #card {
+      display: none;
+      text-align: center;
+      color: #fff;
+      background: rgba(255, 105, 180, 0.9);
+      padding: 5vw;
+      border-radius: 15px;
+      font-size: 4vw;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 30px rgba(255, 0, 130, 0.6);
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      margin-top: 3vh;
+    }
+
+    #finalImage {
+      display: none;
+      opacity: 0;
+      transition: opacity 2s ease, transform 6s ease;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 0, 130, 0.6);
+      margin-top: 3vh;
+    }
+
+    .flower {
+      position: fixed;
+      top: -10px;
+      border-radius: 50%;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+
+    @media (max-width: 400px) {
+      #message { font-size: 6vw; }
+      #card { font-size: 5vw; padding: 6vw; }
+    }
+  </style>
 </head>
 <body>
+  <div id="giftBox">
+    <div id="lid"></div>
+  </div>
 
-<img id="gift" src="https://cdn-icons-png.flaticon.com/512/3530/3530206.png" alt="Hộp quà">
+  <h1 id="message">Hùng DZ Chúc Trần Anh 20/10 💖</h1>
 
-<div id="letter">
-  <h2>💌 Hùng DZ chúc Trần Anh 20/10 thật vui vẻ, luôn xinh đẹp và hạnh phúc bên gia đình 💖</h2>
-</div>
+  <div id="card">
+    Chúc Trần Anh luôn rạng rỡ như hoa,<br>
+    học giỏi, hạnh phúc và tràn đầy niềm vui<br>
+    trong ngày 20/10 này 💐
+  </div>
 
-<div id="card">
-  <h1>🌸 Happy Vietnamese Women’s Day 20/10 🌸</h1>
-  <p>Chúc Trần Anh luôn rạng rỡ, tự tin, thành công và được yêu thương thật nhiều!</p>
-</div>
+  <!-- Thêm link ảnh của bạn vào src="" -->
+  <img id="finalImage" src="https://cdn.pixabay.com/photo/2016/10/29/08/05/flowers-1786172_960_720.jpg" alt="Ảnh kết">
 
-<div id="finalImage">
-  <img src="https://i.postimg.cc/x8dcQDFv/7d58ce65-e70f-495c-96b8-5ac5ad58c3eb.jpg" alt="Ảnh kết thúc">
-</div>
+  <audio id="music" src="https://cdn.pixabay.com/download/audio/2024/02/13/audio_5ed1dc5f2c.mp3?filename=sweet-romantic-piano-190985.mp3" autoplay loop></audio>
 
-<audio id="music" src="https://cdn.pixabay.com/download/audio/2023/04/12/audio_1c7987d89b.mp3?filename=perfect-piano-cover-143612.mp3"></audio>
+  <script>
+    const box = document.getElementById("giftBox");
+    const lid = document.getElementById("lid");
+    const message = document.getElementById("message");
+    const card = document.getElementById("card");
+    const finalImage = document.getElementById("finalImage");
+    let step = 0;
 
-<script>
-  const gift = document.getElementById("gift");
-  const letter = document.getElementById("letter");
-  const card = document.getElementById("card");
-  const finalImage = document.getElementById("finalImage");
-  const music = document.getElementById("music");
-
-  let clickCount = 0;
-
-  function createFlower() {
-    const flower = document.createElement("div");
-    flower.classList.add("falling-flower");
-    flower.innerHTML = "🌸";
-    flower.style.left = Math.random() * 100 + "vw";
-    flower.style.animationDuration = (4 + Math.random() * 3) + "s";
-    document.body.appendChild(flower);
-    setTimeout(() => flower.remove(), 7000);
-  }
-
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-10px";
-    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 5000);
-  }
-
-  gift.addEventListener("click", () => {
-    gift.classList.add("opened");
-    setTimeout(() => {
-      letter.classList.add("show");
-      music.play();
-      setInterval(createFlower, 300);
-    }, 1000);
-  });
-
-  document.body.addEventListener("click", () => {
-    clickCount++;
-    if (clickCount === 2) {
-      letter.style.display = "none";
-      card.style.display = "block";
-    } else if (clickCount === 3) {
-      card.style.display = "none";
-      finalImage.style.display = "block";
-      setInterval(createHeart, 400);
+    function createFlower() {
+      const flower = document.createElement("div");
+      flower.classList.add("flower");
+      const size = 10 + Math.random() * 15;
+      flower.style.width = size + "px";
+      flower.style.height = size + "px";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.background = ["#ffb6c1", "#ff69b4", "#ffc0cb"][Math.floor(Math.random() * 3)];
+      flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 6000);
     }
-  });
-</script>
 
+    setInterval(createFlower, 300);
+
+    document.body.addEventListener("click", () => {
+      step++;
+
+      if (step === 1) {
+        lid.style.transform = "rotateX(150deg)";
+        box.style.animation = "none";
+        setTimeout(() => {
+          message.style.display = "block";
+          message.style.opacity = "1";
+        }, 800);
+      } else if (step === 2) {
+        message.style.display = "none";
+        box.style.display = "none";
+        card.style.display = "block";
+        setTimeout(() => {
+          card.style.opacity = "1";
+          document.body.style.background = "radial-gradient(circle, #ff99cc, #ff66a3)";
+        }, 100);
+      } else if (step === 3) {
+        card.style.display = "none";
+        finalImage.style.display = "block";
+        setTimeout(() => {
+          finalImage.style.opacity = "1";
+          finalImage.style.transform = "scale(1.05)";
+        }, 100);
+      }
+    });
+  </script>
 </body>
 </html>
-
