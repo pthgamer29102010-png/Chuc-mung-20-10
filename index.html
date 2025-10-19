@@ -20,11 +20,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
-    transition: transform 1s;
+    transition: transform 1s, opacity 1s;
   }
 
   #gift.opened {
-    transform: translate(-50%, -50%) rotateX(180deg);
+    transform: translate(-50%, -70%) rotateX(180deg);
     opacity: 0;
   }
 
@@ -36,7 +36,7 @@
     background: #fff8fb;
     border: 3px solid #ff8fc7;
     border-radius: 20px;
-    width: 400px;
+    width: 420px;
     padding: 30px;
     box-shadow: 0 0 30px pink;
     transition: all 1s;
@@ -126,21 +126,26 @@
 </head>
 <body>
 
-<img id="gift" src="https://cdn-icons-png.flaticon.com/512/3530/3530206.png" alt="Hộp quà">
+<!-- 🎁 Hộp quà màu vàng -->
+<img id="gift" src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Hộp quà vàng">
 
+<!-- 💌 Thư chúc -->
 <div id="letter">
   <h2>💌 Hùng DZ chúc Trần Anh 20/10 thật vui vẻ, luôn xinh đẹp và hạnh phúc bên gia đình 💖</h2>
 </div>
 
+<!-- 🌸 Thiệp chính -->
 <div id="card">
   <h1>🌸 Happy Vietnamese Women’s Day 20/10 🌸</h1>
   <p>Chúc Trần Anh luôn rạng rỡ, tự tin, thành công và được yêu thương thật nhiều!</p>
 </div>
 
+<!-- 🖼️ Ảnh kết -->
 <div id="finalImage">
   <img src="https://i.postimg.cc/x8dcQDFv/7d58ce65-e70f-495c-96b8-5ac5ad58c3eb.jpg" alt="Ảnh kết thúc">
 </div>
 
+<!-- 🎵 Nhạc nền (Perfect - Ed Sheeran piano) -->
 <audio id="music" src="https://cdn.pixabay.com/download/audio/2023/04/12/audio_1c7987d89b.mp3?filename=perfect-piano-cover-143612.mp3"></audio>
 
 <script>
