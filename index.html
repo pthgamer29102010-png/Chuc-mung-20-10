@@ -43,3 +43,101 @@
     margin: 100px auto;
     padding: 40px;
     width: 80%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 100, 150, 0.5);
+    animation: fadeIn 2s ease;
+  }
+
+  #finalImage {
+    display: none;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    margin-top: 50px;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  /* Hoa rơi */
+  .flower {
+    position: fixed;
+    top: -50px;
+    font-size: 24px;
+    animation: fall linear forwards;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="giftBox">
+  <div id="giftLid"></div>
+</div>
+
+<div id="messageCard">
+  💌 <b>Hùng DZ</b> chúc <b>Trần Anh</b> 20/10 thật vui vẻ, hạnh phúc và luôn rạng rỡ như hoa 💐  
+  <br><br>
+  Bạn là điều đặc biệt mà ngày 20/10 muốn gửi gắm 💖
+</div>
+
+<img id="finalImage" src="https://i.postimg.cc/x8dcQDFv/7d58ce65-e70f-495c-96b8-5ac5ad58c3eb.jpg" alt="Kết">
+
+<audio id="bgMusic" src="https://www.mboxdrive.com/perfect_instrumental.mp3"></audio>
+
+<script>
+const giftBox = document.getElementById("giftBox");
+const lid = document.getElementById("giftLid");
+const card = document.getElementById("messageCard");
+const img = document.getElementById("finalImage");
+const music = document.getElementById("bgMusic");
+
+let clickCount = 0;
+
+giftBox.addEventListener("click", () => {
+  clickCount++;
+  if (clickCount === 1) {
+    lid.style.transform = "rotateX(160deg)";
+    setTimeout(() => {
+      giftBox.style.transform = "scale(0)";
+      card.style.display = "block";
+      startFlowers();
+      music.play();
+    }, 1200);
+  }
+});
+
+document.body.addEventListener("click", () => {
+  if (clickCount === 1) {
+    clickCount = 2;
+    card.innerHTML = "🌹 Nhân ngày 20/10, chúc bạn mãi xinh đẹp, luôn được yêu thương và hạnh phúc trọn vẹn 💗";
+  } else if (clickCount === 2) {
+    clickCount = 3;
+    card.style.display = "none";
+    img.style.display = "block";
+  }
+});
+
+function startFlowers() {
+  setInterval(() => {
+    const flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.textContent = "🌸";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = 3 + Math.random() * 3 + "s";
+    document.body.appendChild(flower);
+    setTimeout(() => flower.remove(), 5000);
+  }, 300);
+}
+</script>
+</body>
+</html>
