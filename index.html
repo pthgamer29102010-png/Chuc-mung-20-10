@@ -5,120 +5,118 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thiệp 20/10 - Hùng DZ Chúc Trần Anh</title>
 <style>
-  body {
-    margin: 0;
-    overflow-x: hidden;
-    background: radial-gradient(circle, #ffe6ec, #ffccd5);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: "Poppins", sans-serif;
-    transition: background 1s ease;
-    padding: 5vh 0;
-    position: relative;
-  }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: radial-gradient(circle, #ffe6ec, #ffccd5);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  transition: background 1s ease;
+  padding: 5vh 0;
+  position: relative;
+}
 
-  /* Hộp quà */
-  #giftBox {
-    width: 50vw;
-    max-width: 250px;
-    height: 50vw;
-    max-height: 250px;
-    background: #ff4d6d;
-    border-radius: 20px;
-    position: relative;
-    cursor: pointer;
-    animation: shake 2s infinite ease-in-out;
-    box-shadow: 0 0 30px rgba(255,0,90,0.5);
-    margin-top: 5vh;
-    overflow: hidden;
-  }
+/* Hộp quà */
+#giftBox {
+  width: 50vw;
+  max-width: 250px;
+  height: 50vw;
+  max-height: 250px;
+  background: #ff4d6d;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  animation: shake 2s infinite ease-in-out;
+  box-shadow: 0 0 30px rgba(255,0,90,0.5);
+  margin-top: 5vh;
+  overflow: hidden;
+}
 
-  @keyframes shake {
-    0%,100%{transform:rotate(0deg);}
-    25%{transform:rotate(2deg);}
-    50%{transform:rotate(-2deg);}
-    75%{transform:rotate(1deg);}
-  }
+@keyframes shake {
+  0%,100%{transform:rotate(0deg);}
+  25%{transform:rotate(2deg);}
+  50%{transform:rotate(-2deg);}
+  75%{transform:rotate(1deg);}
+}
 
-  /* Nắp quà */
-  #lid {
-    position: absolute;
-    width: 110%;
-    height: 25%;
-    background: linear-gradient(45deg, #ffccd5, #ff99cc);
-    top: -12%;
-    left: -5%;
-    border-radius: 10px;
-    transition: transform 1s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  }
+/* Nắp quà */
+#lid {
+  position: absolute;
+  width: 110%;
+  height: 25%;
+  background: linear-gradient(45deg, #ffccd5, #ff99cc);
+  top: -12%;
+  left: -5%;
+  border-radius: 10px;
+  transition: transform 1s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
-  /* Message xuất hiện */
-  #message {
-    display: none;
-    font-size: 5vw;
-    text-align: center;
-    color: #ff0054;
-    opacity: 0;
-    transition: opacity 2s ease, transform 1s ease;
-    margin-top: 3vh;
-    text-shadow: 0 0 5px #fff;
-  }
+/* Message */
+#message {
+  display: none;
+  font-size: 5vw;
+  text-align: center;
+  color: #ff0054;
+  opacity: 0;
+  transition: opacity 2s ease, transform 1s ease;
+  margin-top: 3vh;
+  text-shadow: 0 0 5px #fff;
+}
 
-  /* Card */
-  #card {
-    display: none;
-    text-align: center;
-    color: #fff;
-    background: rgba(255,105,180,0.9);
-    padding: 5vw;
-    border-radius: 20px;
-    font-size: 4vw;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 0 40px rgba(255,0,130,0.6);
-    opacity: 0;
-    transition: opacity 1.5s ease, transform 0.8s ease;
-    margin-top: 3vh;
-  }
+/* Card */
+#card {
+  display: none;
+  text-align: center;
+  color: #fff;
+  background: rgba(255,105,180,0.9);
+  padding: 5vw;
+  border-radius: 20px;
+  font-size: 4vw;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 40px rgba(255,0,130,0.6);
+  opacity: 0;
+  transition: opacity 1.5s ease, transform 0.8s ease;
+  margin-top: 3vh;
+}
 
-  /* Card phồng lên */
-  #card.show {
-    transform: scale(1.05);
-  }
+/* Card phồng lên */
+#card.show { transform: scale(1.05); }
 
-  /* Ảnh kết: bông hoa */
-  #finalImage {
-    display: none;
-    opacity: 0;
-    transition: opacity 2s ease, transform 2s ease;
-    width: 70%;
-    max-width: 300px;
-    border-radius: 50%;
-    box-shadow: 0 0 50px rgba(255,0,130,0.6);
-    margin-top: 3vh;
-  }
+/* Ảnh kết */
+#finalImage {
+  display: none;
+  opacity: 0;
+  transition: opacity 2s ease, transform 2s ease;
+  width: 70%;
+  max-width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(255,0,130,0.6);
+  margin-top: 3vh;
+}
 
-  /* Hoa rơi */
-  .flower {
-    position: fixed;
-    top: -20px;
-    border-radius: 50%;
-    animation: fall linear infinite;
-    opacity: 0.8;
-  }
+/* Hoa rơi */
+.flower {
+  position: fixed;
+  top: -20px;
+  border-radius: 50%;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
 
-  @keyframes fall {
-    to { transform: translateY(110vh) rotate(360deg); }
-  }
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(360deg); }
+}
 
-  @media (max-width:400px){
-    #message{font-size:6vw;}
-    #card{font-size:5vw; padding:6vw;}
-  }
+@media (max-width:400px){
+  #message{font-size:6vw;}
+  #card{font-size:5vw; padding:6vw;}
+}
 </style>
 </head>
 <body>
@@ -131,41 +129,36 @@
   trong ngày 20/10 này 💐
 </div>
 
-<!-- Ảnh kết là bông hoa -->
-<img id="finalImage" src="https://cdn.pixabay.com/photo/2013/07/12/13/58/flower-147881_960_720.png" alt="Bông hoa">
+<!-- Ảnh kết là bông hoa thật -->
+<img id="finalImage" src="https://cdn.pixabay.com/photo/2017/07/31/11/21/rose-2554741_960_720.png" alt="Bông hoa">
 
 <audio id="music" src="https://cdn.pixabay.com/download/audio/2024/02/13/audio_5ed1dc5f2c.mp3?filename=sweet-romantic-piano-190985.mp3" autoplay loop></audio>
 
 <script>
-const box = document.getElementById("giftBox");
-const lid = document.getElementById("lid");
-const message = document.getElementById("message");
-const card = document.getElementById("card");
-const finalImage = document.getElementById("finalImage");
-let step = 0;
+const box=document.getElementById("giftBox");
+const lid=document.getElementById("lid");
+const message=document.getElementById("message");
+const card=document.getElementById("card");
+const finalImage=document.getElementById("finalImage");
+let step=0;
 
-// Tạo hoa rơi nhiều hơn
-function createFlower() {
-  const flower = document.createElement("div");
+// Hoa rơi nhiều chi tiết
+function createFlower(){
+  const flower=document.createElement("div");
   flower.classList.add("flower");
-  const size = 8 + Math.random() * 15;
-  flower.style.width = flower.style.height = size + "px";
-  flower.style.left = Math.random() * 100 + "vw";
-  const colors = ["#ffb6c1","#ff69b4","#ffc0cb","#fff0f5","#ff99cc"];
-  flower.style.background = colors[Math.floor(Math.random() * colors.length)];
-  flower.style.animationDuration = (2 + Math.random() * 4) + "s";
-  flower.style.opacity = 0.5 + Math.random() * 0.5;
-  flower.style.transform = `rotate(${Math.random()*360}deg)`;
+  const size=8+Math.random()*15;
+  flower.style.width=flower.style.height=size+"px";
+  flower.style.left=Math.random()*100+"vw";
+  const colors=["#ffb6c1","#ff69b4","#ffc0cb","#fff0f5","#ff99cc"];
+  flower.style.background=colors[Math.floor(Math.random()*colors.length)];
+  flower.style.animationDuration=(2+Math.random()*4)+"s";
+  flower.style.opacity=0.5+Math.random()*0.5;
+  flower.style.transform=`rotate(${Math.random()*360}deg)`;
   document.body.appendChild(flower);
-  setTimeout(() => flower.remove(), 6000);
+  setTimeout(()=>flower.remove(),6000);
 }
 
-// Tạo nhiều hoa cùng lúc
-setInterval(()=>{
-  for(let i=0;i<3;i++){ // mỗi lần tạo 3 bông hoa
-    createFlower();
-  }
-}, 250);
+setInterval(()=>{for(let i=0;i<4;i++) createFlower();},200); // nhiều hoa cùng lúc
 
 // Click tuần tự mở thiệp
 document.body.addEventListener("click",()=>{
@@ -173,10 +166,7 @@ document.body.addEventListener("click",()=>{
   if(step===1){
     lid.style.transform="rotateX(150deg)";
     box.style.animation="none";
-    setTimeout(()=>{
-      message.style.display="block";
-      message.style.opacity="1";
-    },800);
+    setTimeout(()=>{ message.style.display="block"; message.style.opacity="1"; },800);
   } else if(step===2){
     message.style.display="none";
     box.style.display="none";
