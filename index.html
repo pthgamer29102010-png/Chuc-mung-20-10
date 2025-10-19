@@ -1,115 +1,54 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chúc mừng 20-10</title>
-<style>
-  body {
-    margin: 0;
-    overflow: hidden;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiệu ứng chữ đổi nội dung</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-  h1 {
-    position: absolute;
-    top: 10%;
-    width: 100%;
-    text-align: center;
-    font-size: 3em;
-    text-shadow: 0 0 20px #ff7eb3, 0 0 40px #ff65a3;
-    animation: glow 2s infinite alternate;
-  }
+    .text {
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-  @keyframes glow {
-    from { text-shadow: 0 0 10px #fff; }
-    to { text-shadow: 0 0 30px #ff1493, 0 0 60px #ff69b4; }
-  }
-
-  .message {
-    position: absolute;
-    top: 30%;
-    width: 80%;
-    left: 10%;
-    text-align: center;
-    font-size: 1.3em;
-    line-height: 1.8em;
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-  }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-
-  .heart, .flower {
-    position: absolute;
-    animation: fall linear infinite;
-  }
-
-  .heart::before, .heart::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 16px;
-    background: red;
-    border-radius: 10px 10px 0 0;
-    top: 0;
-  }
-
-  .heart::before {
-    left: 10px;
-    transform: rotate(-45deg);
-  }
-
-  .heart::after {
-    left: 0;
-    transform: rotate(45deg);
-  }
-
-  @keyframes fall {
-    0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-  }
-
-  .btn {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    border: none;
-    background: rgba(255,255,255,0.2);
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1em;
-    backdrop-filter: blur(5px);
-    transition: 0.3s;
-  }
-  .btn:hover {
-    background: rgba(255,255,255,0.4);
-  }
-
-  audio {
-    display: none;
-  }
-</style>
+    .text:hover {
+      color: cyan;
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
+  <div class="text" id="text">Bấm vào tôi đi</div>
 
-<h1>💖Hùng DZ Chúc Trần Anh 20-10 💖</h1>
+  <script>
+    const text = document.getElementById("text");
 
-<div class="message" id="msg">
-  <p>Ngày 20/10 là ngày đặc biệt dành cho những người phụ nữ Việt Nam tuyệt vời – những người luôn mang đến yêu thương, sẻ chia và nụ cười cho cuộc sống này.</p>
-  <p>Chúc mày luôn xinh đẹp, hạnh phúc, mạnh mẽ và thành công trên con đường mình đã chọn. Dù đi đâu hay làm gì, hãy luôn giữ cho mình trái tim ấm áp và nụ cười rạng rỡ nhé.</p>
-  <p>Cuộc sống có thể bận rộn, nhưng những người đáng quý như mày thì luôn xứng đáng được trân trọng và yêu thương thật nhiều. 🌸</p>
-  <p>Chúc mày có một ngày 20/10 thật ý nghĩa – tràn ngập niềm vui, hoa tươi và tiếng cười 💐</p>
-</div>
+    const texts = [
+      "Xin chào bạn 👋",
+      "Chúc bạn một ngày tốt lành!",
+      "Công nghệ thật thú vị đúng không?",
+      "AI đang thay đổi thế giới 🌍",
+      "Bạn đã click rồi đó 😄"
+    ];
 
-<button class="btn" onclick="toggleMusic()">🎵 Bật/Tắt nhạc</button>
+    let index = 0;
 
-<audio id="music" autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2023/01/03/audio_547c527a3b.mp3" t_
+    text.addEventListener("click", () => {
+      index = (index + 1) % texts.length;
+      text.textContent = texts[index];
+    });
+  </script>
+</body>
+</html>
